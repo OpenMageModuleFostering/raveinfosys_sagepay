@@ -4,7 +4,7 @@
     </default>
     <sagepay_index_index>
         <reference name="content">
-            <block type="sagepay/sagepay" name="sagepay" template="sagepay/sagepay.phtml" />
+            <block type="core/template" name="sagepay" template="core/template.phtml" />
         </reference>
     </sagepay_index_index>
 	
@@ -13,7 +13,7 @@
 	    <remove name="top.menu"/>
 		<remove name="top.search"/>	
 	    <reference name="content">
-            <block type="sagepay/sagepay" name="sagepay_3d_form" template="sagepay/sagepay.phtml" />
+            <block type="core/template" name="sagepay_3d_form" template="core/template.phtml" />
         </reference>
 	
 	</checkout_onepage_sagepay3dcheck>
@@ -23,7 +23,7 @@
 	    <remove name="top.menu"/>
 		<remove name="top.search"/>
 	    <reference name="content">
-            <block type="sagepay/sagepay" name="sagepay_success" template="sagepay/threedsuccess.phtml" />
+            <block type="core/template" name="sagepay_success" template="sagepay/threedsuccess.phtml" />
         </reference>
 	
 	</checkout_onepage_threedsuccess>

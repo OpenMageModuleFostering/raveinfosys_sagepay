@@ -6,11 +6,11 @@ $installer->startSetup();
 
 $installer->run("
 
--- DROP TABLE IF EXISTS {$this->getTable('sagepay')};    
+-- DROP TABLE IF EXISTS {$this->getTable('sagepay')};
 	CREATE TABLE {$this->getTable('sagepay')} (
-  `sagepay_id` int(11) NOT NULL auto_increment,   
-  `parent_id` int(11),   
-  `order_id` int(11) NOT NULL default 0,   
+  `sagepay_id` int(11) NOT NULL auto_increment,
+  `parent_id` int(11),
+  `order_id` int(11) NOT NULL default 0,
   `vps_tx_id` varchar(200) NOT NULL default '',
   `vendor_tx_code` varchar(200) NOT NULL default '',
   `security_key` varchar(200) NOT NULL default '',
@@ -32,11 +32,11 @@ $installer->run("
   PRIMARY KEY  (`sagepay_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- DROP TABLE IF EXISTS {$this->getTable('sagepay_transaction_detail')};    
+-- DROP TABLE IF EXISTS {$this->getTable('sagepay_transaction_detail')};
 CREATE TABLE {$this->getTable('sagepay_transaction_detail')} (
-  `transaction_id` int(11) NOT NULL auto_increment,   
-  `sagepay_id` int(11) NOT NULL default 0,   
-  `order_id` int(11) NOT NULL default 0,   
+  `transaction_id` int(11) NOT NULL auto_increment,
+  `sagepay_id` int(11) NOT NULL default 0,
+  `order_id` int(11) NOT NULL default 0,
   `vps_tx_id` varchar(200) NOT NULL default '',
   `vendor_tx_code` varchar(200) NOT NULL default '',
   `security_key` varchar(200) NOT NULL default '',
@@ -51,4 +51,4 @@ CREATE TABLE {$this->getTable('sagepay_transaction_detail')} (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ");
 
-$installer->endSetup(); 
+$installer->endSetup();

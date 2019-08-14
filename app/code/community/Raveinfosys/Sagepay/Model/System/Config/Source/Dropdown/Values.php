@@ -2,7 +2,8 @@
 
 class Raveinfosys_Sagepay_Model_System_Config_Source_Dropdown_Values
 {
-   public function toOptionArray()
+
+    public function toOptionArray()
     {
         return array(
             array(
@@ -13,10 +14,11 @@ class Raveinfosys_Sagepay_Model_System_Config_Source_Dropdown_Values
                 'value' => 'test',
                 'label' => 'Test',
             ),
-			array(
+            array(
                 'value' => 'live',
                 'label' => 'Live',
             ),
         );
     }
+
 }
