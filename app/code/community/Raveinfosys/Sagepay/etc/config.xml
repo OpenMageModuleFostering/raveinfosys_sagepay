@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * which is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you are unable to obtain it through the world-wide-web,
+ * please send an email to magento@raveinfosys.com
+ * so we can send you a copy immediately.
+ *
+ * @category	Raveinfosys
+ * @package		Raveinfosys_Sagepay
+ * @author		RaveInfosys, Inc.
+ * @license		http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+	<modules>
+        <Raveinfosys_Sagepay>
+            <version>0.1.0</version>
+        </Raveinfosys_Sagepay>
+    </modules>
+	<frontend>
+	  
+	    <routers>
+            
+			<checkout>
+                <args>
+                    <modules>
+                         <Raveinfosys_Sagepay before="Mage_Checkout">Raveinfosys_Sagepay_Checkout</Raveinfosys_Sagepay>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
+        <layout>
+            <updates>
+                <sagepay>
+                    <file>sagepay.xml</file>
+                </sagepay>
+            </updates>
+        </layout>
+	   
+		<events>  
+			<payment_method_is_active>
+				<observers>
+					<sagepay>
+						<type>singleton</type>
+						<class>Raveinfosys_Sagepay_Model_Observer</class>
+						<method>disableMethod</method>
+					</sagepay>
+				</observers>
+			</payment_method_is_active>
+			<core_layout_update_updates_get_after>
+                <observers>
+                    <sagepay_core_layout_update_updates_get_after>
+                        <type>singleton</type>
+                        <class>Raveinfosys_Sagepay_Model_Observer</class>
+                        <method>layoutUpdate</method>
+                    </sagepay_core_layout_update_updates_get_after>
+                </observers>
+            </core_layout_update_updates_get_after>
+		</events>
+	</frontend>
+    <admin>
+        <routers>
+			<sagepay>
+				<use>admin</use>
+				<args>
+					<module>Raveinfosys_Sagepay</module>
+					<frontName>sagepay</frontName>
+				</args>
+			</sagepay>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<sagepay module="sagepay">
+				<title>Sagepay</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="sagepay">
+						<title>Transaction Details</title>
+						<sort_order>0</sort_order>
+						<action>sagepay/adminhtml_sagepay</action>
+					</items>
+				</children>
+			</sagepay>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Raveinfosys_Sagepay>
+							<title>Sagepay Module</title>
+							<sort_order>10</sort_order>
+						</Raveinfosys_Sagepay>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<sagepay>
+					<file>sagepay.xml</file>
+				</sagepay>
+			</updates>
+		</layout>
+    </adminhtml>   
+	<global>
+		<models>
+			
+		    <sagepay>
+                <class>Raveinfosys_Sagepay_Model</class>
+                <resourceModel>sagepay_mysql4</resourceModel>
+            </sagepay>
+            <sagepay_mysql4>
+                <class>Raveinfosys_Sagepay_Model_Mysql4</class>
+                <entities>
+                    <sagepay>
+                        <table>sagepay</table>
+                    </sagepay>
+					<transaction>
+                        <table>sagepay_transaction_detail</table>
+                    </transaction>
+                </entities>
+            </sagepay_mysql4>
+        </models>
+        <resources>
+            <sagepay_setup>
+                <setup>
+                    <module>Raveinfosys_Sagepay</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </sagepay_setup>
+            <sagepay_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </sagepay_write>
+            <sagepay_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </sagepay_read>
+        </resources>
+		<blocks>
+            <sagepay>
+                <class>Raveinfosys_Sagepay_Block</class>
+            </sagepay>
+        
+    </blocks>
+        <helpers>
+            <sagepay>
+                <class>Raveinfosys_Sagepay_Helper</class>
+            </sagepay>
+        </helpers>
+		
+		 <events>
+			<!-- START Adds the Admin theme switcher, enables to avoid modify admin themes -->
+		      <adminhtml_controller_action_predispatch_start>
+		        <observers>
+		          <raveinfosys_themeoverride_observer>
+		            <type>singleton</type>
+		            <class>Raveinfosys_Sagepay_Controller_Observer</class>
+		            <method>overrideTheme</method>
+		          </raveinfosys_themeoverride_observer>
+		        </observers>
+		      </adminhtml_controller_action_predispatch_start>
+		      <!-- END Adds the Admin theme switcher, enables to avoid modify admin themes -->          
+        </events>
+		
+	</global>
+	<default>
+        <payment>
+            <sagepay>
+			    <active>0</active>
+                <title>SagePay Payment Gateway</title>
+				<order_status>pending</order_status>
+				<cctypes>AE,VI,MC</cctypes>
+				<useccv>1</useccv>
+				<allowspecific>0</allowspecific>
+				<test>1</test>
+				<payment_action>authorize_capture</payment_action>
+				<model>sagepay/payment</model>
+            </sagepay>
+        </payment>
+    </default>
+</config>

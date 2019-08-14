@@ -1,0 +1,13 @@
+
+<script>
+
+<?php if(Mage::registry('status')!=1):?>
+alert('ERROR. Direct 3D-Secure transaction from Simulator');
+parent.document.getElementById('threedIframe').style.display = "none";
+
+<?php else:?>
+parent.document.getElementById('threedIframe').style.display = "none";
+parent.window.location.href = "<?php echo Mage::registry('url');?>";
+<?php endif;?>
+</script>
+

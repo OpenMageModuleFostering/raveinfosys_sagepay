@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <sagepay_adminhtml_sagepay_index>
+        <reference name="content">
+            <block type="sagepay/adminhtml_sagepay" name="sagepay" />
+        </reference>
+    </sagepay_adminhtml_sagepay_index>
+</layout>

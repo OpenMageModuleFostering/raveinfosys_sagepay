@@ -1,0 +1,11 @@
+<?php $session = Mage::getSingleton('core/session');
+	  $data = $session->getGatewayResult();?>
+
+  <form name="form" action="<?php echo $data['ACSURL'];?>" method="POST">
+    <input type="hidden" name="PaReq" value="<?php echo $data['PAReq'];?>" />
+    <input type="hidden" name="TermUrl" value="<?php echo Mage::getUrl('checkout/onepage/threedSuccess');?>?VendorTxCode='<?php echo $data['VendorTxCode'];?>'" />
+    <input type="hidden" name="MD" value="<?php echo $data['MD'];?>" />
+    <input type="submit" value="Proceed to 3D secure authentication" />
+  </form>
+  <script type="text/javascript">document.form.submit();</script>
+

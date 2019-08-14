@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Raveinfosys_Sagepay>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Raveinfosys_Sagepay>
+    </modules>
+</config> 

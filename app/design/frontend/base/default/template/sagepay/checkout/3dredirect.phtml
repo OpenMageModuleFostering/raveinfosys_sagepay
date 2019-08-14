@@ -1,0 +1,50 @@
+
+
+<style>
+#threedIframe {
+width:100%;
+height:100%;
+opacity:.95;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color:#313131;
+overflow:auto
+}
+
+div#popupContact {
+position:absolute;
+left:40%;
+top:13%;
+margin-left:-202px;
+font-family:'Raleway',sans-serif
+}
+
+</style>
+<!-- Body Starts Here -->
+
+<body id="body" style="overflow:hidden;">
+<div id="threedIframe">
+<!-- Popup Div Starts Here -->
+<div id="popupContact">
+<!-- Contact Us Form -->
+<iframe id="sagepaydirectpro-iframe-post" src="<?php echo Mage::registry('url'); ?>" width='700' , height='500'></iframe>
+</div>
+<!-- Popup Div Ends Here -->
+</div>
+
+<!-- Body Ends Here -->
+
+<script>
+//Function To Display Popup
+function div_show() {
+document.getElementById('threedIframe').style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(){
+document.getElementById('threedIframe').style.display = "none";
+}
+
+div_show();
+</script>

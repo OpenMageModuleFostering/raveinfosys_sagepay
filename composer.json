@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Raveinfosys_Sagepay",
+    "type": "magento-module",
+    "license": "OSL-v3.0",
+    "homepage": "",
+    "description": "Sagepay Payment Gateway Extension.",
+    "authors": [
+    {
+        "name": "Raveinfosys",
+        "email": "magento@raveinfosys.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
