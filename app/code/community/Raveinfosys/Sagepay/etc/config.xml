@@ -52,15 +52,15 @@
 					</sagepay>
 				</observers>
 			</payment_method_is_active>
-			<core_layout_update_updates_get_after>
+			<!-- <core_layout_update_updates_get_after>
                 <observers>
                     <sagepay_core_layout_update_updates_get_after>
-                        <type>singleton</type>
+                        <type>model</type>
                         <class>Raveinfosys_Sagepay_Model_Observer</class>
                         <method>layoutUpdate</method>
                     </sagepay_core_layout_update_updates_get_after>
                 </observers>
-            </core_layout_update_updates_get_after>
+            </core_layout_update_updates_get_after> -->
 		</events>
 	</frontend>
     <admin>

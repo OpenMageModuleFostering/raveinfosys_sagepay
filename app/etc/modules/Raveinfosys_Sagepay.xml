@@ -4,6 +4,9 @@
         <Raveinfosys_Sagepay>
             <active>true</active>
             <codePool>community</codePool>
+			 <depends>
+                <Mage_Checkout/>
+            </depends>
         </Raveinfosys_Sagepay>
     </modules>
 </config> 

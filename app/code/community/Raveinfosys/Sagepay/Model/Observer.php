@@ -13,7 +13,7 @@ class Raveinfosys_Sagepay_Model_Observer {
 		}
 	}
 	
-	public function layoutUpdate($observer)
+	public function layoutUpdate(Varien_Event_Observer $observer)
 	{
 	    if(!Mage::getStoreConfigFlag('advanced/modules_disable_output/'.$moduleName) && !Mage::getStoreConfigFlag('payment/sagepay/active')){
 			return $observer;
